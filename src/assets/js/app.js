@@ -1,6 +1,13 @@
-class Index {
+import df from './df';
+
+class Index extends df {
     constructor() {
-        console.log('index ----  asdas-->');
+        super();
+    }
+
+    resizeHandler(e) {
+        super.resizeHandler(e);
+        console.log(e);
     }
 }
 
