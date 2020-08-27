@@ -1,0 +1,38 @@
+{
+  "name": "webpack-test",
+  "version": "1.0.0",
+  "description": "webpack 테스트",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --hot",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uforgot/webpack-test.git"
+  },
+  "author": "uforgot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uforgot/webpack-test/issues"
+  },
+  "homepage": "https://github.com/uforgot/webpack-test#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "autoprefixer": "^9.8.6",
+    "css-loader": "^4.2.2",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "html-webpack-tags-plugin": "^2.0.17",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^10.0.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
