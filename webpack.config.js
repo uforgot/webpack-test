@@ -10,7 +10,8 @@ module.exports = {
     entry: {
         css:'./src/assets/scss/style.scss',
         index:'./src/assets/js/app.js',
-        about:'./src/assets/js/about.js'
+        about:'./src/assets/js/about.js',
+        index2:'./src/assets/js/app2.js'
     },
     output: {
         filename:'assets/js/[name].bundle.js',
@@ -91,6 +92,15 @@ module.exports = {
             template: './src/ejs/index.ejs',
             chunks: ['about'],
             filename:'b.html',
+            HTML_PATH: folderPath
+        }),
+
+        new HtmlWebpackPlugin({
+            title : 'index2',
+            hash: true,
+            template: './src/ejs/index2.ejs',
+            chunks: ['index2'],
+            filename:'index2.html',
             HTML_PATH: folderPath
         }),
 

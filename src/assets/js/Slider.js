@@ -1,7 +1,7 @@
 export default class Slider {
-    constructor(el) {
+    constructor(el, margin) {
         this.el = el;
-        this.margin = 100;
+        this.margin =margin;
 
         this.id = 0;
         this.max = this.el.find('img').length;
