@@ -1,14 +1,11 @@
 import df from './df';
+import Slider from './Slider';
 
-class Index extends df {
+class Index  {
     constructor() {
-        super();
+        let aaa = new Slider($('#slider-2'));
     }
 
-    resizeHandler(e) {
-        super.resizeHandler(e);
-        console.log(e);
-    }
 }
 
 new Index();
