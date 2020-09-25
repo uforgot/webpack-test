@@ -3,6 +3,9 @@ export default class Slider {
         this.el = el;
         this.margin =margin;
 
+        var aaaa=1;
+        aaaa = 2;
+
         this.id = 0;
         this.max = this.el.find('img').length;
 
