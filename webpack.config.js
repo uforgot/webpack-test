@@ -11,7 +11,7 @@ module.exports = {
         css:'./src/assets/scss/style.scss',
         index:'./src/assets/js/app.js',
         about:'./src/assets/js/about.js',
-        index2:'./src/assets/js/app2.js'
+        slider:'./src/assets/js/page_slider.js'
     },
     output: {
         filename:'assets/js/[name].bundle.js',
@@ -21,7 +21,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: false,
-        host: '192.168.1.9',
+        host: 'localhost',
         watchContentBase: true,
         hot: true,
         open: true,
@@ -96,11 +96,11 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title : 'index2',
+            title : 'slider',
             hash: true,
-            template: './src/ejs/index2.ejs',
-            chunks: ['index2'],
-            filename:'index2.html',
+            template: './src/ejs/slider.ejs',
+            chunks: ['slider'],
+            filename:'slider.html',
             HTML_PATH: folderPath
         }),
 
