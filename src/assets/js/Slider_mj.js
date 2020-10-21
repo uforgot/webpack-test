@@ -34,14 +34,32 @@ export default class Slider {
     setIndicator() {
         this.indiLen = this.maxLen;
 
+        console.log(this.getTemplateEl(0));
+
         for(let i =0; i <this.indiLen; i++) {
-            console.log(i)
             if(i === 0) {
-                document.querySelector(".indicator-wrap").insertAdjacentHTML('beforeend', '<li class="current"><button class="btn-indicator"><span class="blind">' + 'indicator ' + i + '</span></button></li>')
+                document.querySelector(".indicator-wrap").insertAdjacentHTML('beforeend',
+                    '<li class="current"><button class="btn-indicator"><span class="blind">' + 'indicator ' + i + '</span></button></li>'
+                )
             } else  {
-                document.querySelector(".indicator-wrap").insertAdjacentHTML('beforeend', '<li><button class="btn-indicator"><span class="blind">' + 'indicator ' + i + '</span></button></li>')
+                document.querySelector(".indicator-wrap").insertAdjacentHTML('beforeend',
+                    '<li><button class="btn-indicator"><span class="blind">' + 'indicator ' + i + '</span></button></li>'
+                )
             }
         }
+    }
+
+    getTemplateEl(i) {
+        let templateEl = $('script[data-template="indicator-item"]').text();
+        let templateElArray = [];
+
+        console.log(templateEl);
+        templateElArray.push(templateEl.split('${')[0]);
+        templateElArray.push(i);
+        templateElArray.push(templateEl.split('}')[1]);
+        console.log(templateElArray);
+
+        return templateElArray.join('');
     }
 
     controlIndicator(followingIdx) {
@@ -211,7 +229,7 @@ export default class Slider {
         }
     }
 
-    /*
+
     getCoordinatePosition(e) {
         let x,y;
 
@@ -225,5 +243,5 @@ export default class Slider {
 
         return {x:x, y:y};
     }
-    */
+
 }
