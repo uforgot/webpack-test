@@ -177,7 +177,6 @@ export default class Slider {
         //this.firstX에 터치가 시작된 위치 저장
         this.firstX = e.originalEvent.touches[0].clientX;
         this.startX = e.originalEvent.touches[0].clientX;
-        console.log(this.firstX, this.startX)
     }
 
     touchMoveHandler(e) {
