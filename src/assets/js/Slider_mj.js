@@ -87,6 +87,7 @@ export default class Slider {
         }
     }
 
+    // 인디케이터 클래스 제어
     controlIndicator(followingIdx) {
         //this.el.find('.indicator-wrap li').removeClass('current');
         //this.el.find('.indicator-wrap li').eq(followingIdx).addClass('current');
