@@ -268,6 +268,7 @@ export default class Slider {
         }
     }
 
+    // 마우스, 터치 디바이스별 좌표값 구하기
     getCoordinatePosition(e) {
         let x,y;
 
