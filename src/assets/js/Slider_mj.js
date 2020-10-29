@@ -44,6 +44,7 @@ export default class Slider {
         }
     }
 
+    // 인디케이터 마크업 생성 (구버전)
     setIndicator() {
         this.indiLen = this.maxLen;
 
