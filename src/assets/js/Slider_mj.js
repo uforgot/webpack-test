@@ -11,6 +11,14 @@ export default class Slider {
         this.startX = 0;
         this.distanceX = 0;
 
+        fetch('static/data/data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Do something with your data
+                console.log(data);
+                console.log(data.list[0].img);
+            });
+
         this.addEvent();
     }
 
@@ -80,10 +88,11 @@ export default class Slider {
 
         for(let i =0; i <this.indiLen; i++) {
             //console.log(this.getIndicatorItem(i));
-            this.indiArr.push(this.getIndicatorItem(i));
+            // this.indiArr.push(this.getIndicatorItem(i));
+            let tmpIndiEl = this.getIndicatorItem(i);
 
             document.querySelector(".indicator-wrap").insertAdjacentHTML('beforeend',
-                this.indiArr[i]
+                tmpIndiEl
             )
         }
     }

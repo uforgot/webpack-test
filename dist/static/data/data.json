@@ -1,0 +1,22 @@
+{
+    "option" : {
+        "infinite" : true,
+        "scroll" : "x-scroll",
+        "motion" : "ease-out",
+        "default" : 4
+    },
+    "list" : [
+        {
+            "img":"1.jpg",
+            "alt":"bmw 1"
+        },
+        {
+            "img":"2.jpg",
+            "alt":"bmw 2"
+        },
+        {
+            "img":"3.jpg",
+            "alt":"bmw 3"
+        }
+    ]
+}
