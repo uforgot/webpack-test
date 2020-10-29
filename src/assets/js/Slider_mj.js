@@ -5,6 +5,8 @@ export default class Slider {
         this.maxLen = this.el.find('.slider-item').length;
         this.positionX = 0;
 
+        this.indiArr = [];
+
         this.isDrag = false;
         this.startX = 0;
         this.distanceX = 0;
@@ -13,7 +15,10 @@ export default class Slider {
     }
 
     addEvent() {
-        this.setIndicator();
+        this.setDataIdx();
+        //this.setIndicator();
+        //this.getIndicatorItem();
+        this.setIndicatorItem();
         this.resizeHandler();
 
         window.addEventListener('resize', (e)=>{this.resizeHandler(e);})
@@ -31,10 +36,16 @@ export default class Slider {
         this.el.find('.btn-indicator').on('click', (e)=>{this.onClickIndicator(e);});
     }
 
+    // 리스트에 데이터 인덱스 값 붙여주기
+    setDataIdx() {
+        for(let i =0; i <this.maxLen; i++) {
+            //console.log('set attr', document.querySelectorAll('.slider-view li')[i]);
+            document.querySelectorAll('.slider-view li')[i].setAttribute('date-index', "'"+i+"'");
+        }
+    }
+
     setIndicator() {
         this.indiLen = this.maxLen;
-
-        console.log(this.getTemplateEl(0));
 
         for(let i =0; i <this.indiLen; i++) {
             if(i === 0) {
@@ -49,22 +60,44 @@ export default class Slider {
         }
     }
 
-    getTemplateEl(i) {
+    // 인디케이터 마크업 생성
+    getIndicatorItem(i) {
         let templateEl = $('script[data-template="indicator-item"]').text();
         let templateElArray = [];
 
-        console.log(templateEl);
         templateElArray.push(templateEl.split('${')[0]);
-        templateElArray.push(i);
+        templateElArray.push(i+1);
         templateElArray.push(templateEl.split('}')[1]);
-        console.log(templateElArray);
+        //console.log(templateElArray);
 
         return templateElArray.join('');
     }
 
+    // 인디케이터 마크업 붙여넣기
+    setIndicatorItem(){
+        this.indiLen = this.maxLen;
+
+        for(let i =0; i <this.indiLen; i++) {
+            console.log(this.getIndicatorItem(i));
+            this.indiArr.push(this.getIndicatorItem(i));
+
+            document.querySelector(".indicator-wrap").insertAdjacentHTML('beforeend',
+                this.indiArr[i]
+            )
+        }
+    }
+
     controlIndicator(followingIdx) {
-        this.el.find('.indicator-wrap li').removeClass('current');
-        this.el.find('.indicator-wrap li').eq(followingIdx).addClass('current');
+        //this.el.find('.indicator-wrap li').removeClass('current');
+        //this.el.find('.indicator-wrap li').eq(followingIdx).addClass('current');
+
+        let indicators = document.querySelectorAll(".indicator-wrap li");
+
+        for(let i =0; i <this.indiLen; i++) {
+            indicators[i].classList.remove('current');
+        }
+
+        indicators[followingIdx].classList.add('current');
     }
 
     resizeHandler() {
@@ -118,13 +151,13 @@ export default class Slider {
     getIndicatorIdx(target){
         let targetEl = target;
 
-        for(let i = 0; i < targetEl.parentNode.childNodes.length; i++) {
-            console.log(targetEl.parentNode.childNodes[i], targetEl)
-            console.log(targetEl.parentNode.childNodes[i] === targetEl)
+        for(let i = 0; i < targetEl.parentNode.children.length; i++) {
+            //console.log(targetEl.parentNode.children[i], targetEl)
+            //console.log(targetEl.parentNode.children[i] === targetEl)
 
-            if (targetEl.parentNode.childNodes[i] === targetEl) {
+            if (targetEl.parentNode.children[i] === targetEl) {
                 this.idx = i;
-                console.log(i);
+                //console.log(i);
             }
         }
     }
@@ -132,6 +165,10 @@ export default class Slider {
     getDestination() {
         this.positionX = -(this.idx * this.sliderItemWidth);
         //console.log(this.positionX)
+    }
+
+    setShortcut() {
+
     }
 
     movePosition(isAnimation) {

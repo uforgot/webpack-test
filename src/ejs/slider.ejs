@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script src="static/vendor/jquery-1.11.3.min.js"></script>
+    <script src="static/vendor/underscore-esm.js"></script>
 </head>
 <body>
 
@@ -44,11 +45,9 @@
 
 </div>
 <script type="text/template" data-template="indicator-item">
-    <li class="current">
+    <li>
         <button class="btn-indicator">
-            <span class="blind">
-                indicator ${num}
-            </span>
+            <span class="blind">indicator ${num}</span>
         </button>
     </li>
 </script>
