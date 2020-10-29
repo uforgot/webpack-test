@@ -79,7 +79,7 @@ export default class Slider {
         this.indiLen = this.maxLen;
 
         for(let i =0; i <this.indiLen; i++) {
-            console.log(this.getIndicatorItem(i));
+            //console.log(this.getIndicatorItem(i));
             this.indiArr.push(this.getIndicatorItem(i));
 
             document.querySelector(".indicator-wrap").insertAdjacentHTML('beforeend',
@@ -102,6 +102,7 @@ export default class Slider {
         indicators[followingIdx].classList.add('current');
     }
 
+    // 리사이즈
     resizeHandler() {
         //slider 컨테이너 넓이
         this.sliderWrapWidth = this.el.width();
@@ -169,10 +170,6 @@ export default class Slider {
         //console.log(this.positionX)
     }
 
-    setShortcut() {
-
-    }
-
     movePosition(isAnimation) {
         let css = {};
 
@@ -193,18 +190,20 @@ export default class Slider {
 
         this.isDrag =true;
 
-        this.firstX = e.clientX;
-        this.startX = e.clientX;
+        console.log(this.getCoordinatePosition(e).x, this.getCoordinatePosition(e).y)
+
+        this.firstX = this.getCoordinatePosition(e).x;
+        this.startX = this.getCoordinatePosition(e).x;
     }
 
     mouseMoveHandler(e) {
         if(!this.isDrag) {
           return false;
         }else {
-            console.log ('on drag', this.startX, e.clientX, this.firstX - e.clientX);
+            //console.log ('on drag', this.startX, this.getCoordinatePosition(e).x, this.firstX - this.getCoordinatePosition(e).x);
         }
-        let movedX = (this.startX - e.clientX)*1.2;
-        this.startX = e.clientX;
+        let movedX = (this.startX - this.getCoordinatePosition(e).x)*1.2;
+        this.startX = this.getCoordinatePosition(e).x;
         this.positionX = this.positionX - movedX;
         this.movePosition(false);
 
@@ -213,9 +212,9 @@ export default class Slider {
     mouseUpHandler(e) {
         this.isDrag= false;
 
-        if ((this.firstX - e.clientX) > 100) {
+        if ((this.firstX - this.getCoordinatePosition(e).x) > 100) {
             this.goNext();
-        } else if ((this.firstX - e.clientX) < -100) {
+        } else if ((this.firstX - this.getCoordinatePosition(e).x) < -100) {
             this.goPrev();
         }
 
@@ -230,14 +229,15 @@ export default class Slider {
     }
 
     touchStartHandler(e) {
-        console.log('touch start');
+        //console.log('touch start');
+        this.getCoordinatePosition(e);
         //this.firstX에 터치가 시작된 위치 저장
         this.firstX = e.originalEvent.touches[0].clientX;
         this.startX = e.originalEvent.touches[0].clientX;
     }
 
     touchMoveHandler(e) {
-        console.log('touch move');
+        //console.log('touch move');
         let movedX = (this.startX - e.originalEvent.touches[0].clientX)*1.2;
         //console.log(this.firstX + '-' + e.originalEvent.touches[0].clientX + '=' + distanceX);
 
@@ -248,7 +248,7 @@ export default class Slider {
     }
 
     touchEndHandler(e) {
-        console.log('touch end')
+        //console.log('touch end')
         //this.firstX에 터치가 끝난 위치 저장
         this.lastX = e.originalEvent.changedTouches[0].clientX
         this.distanceX = this.firstX - this.lastX;
@@ -268,13 +268,14 @@ export default class Slider {
         }
     }
 
-
     getCoordinatePosition(e) {
         let x,y;
 
+        //console.log(e.type.split('touch'))
+
         if (e.type.split('touch').length > 1) {
-            x = e.touches[0].clientX;
-            y = e.touches[0].clientY;
+            x = e.originalEvent.touches[0].clientX;
+            y = e.originalEvent.touches[0].clientY;
         } else {
             x = e.clientX;
             y = e.clientY;
