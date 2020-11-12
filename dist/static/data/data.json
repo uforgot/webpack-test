@@ -1,22 +1,24 @@
 {
-    "option" : {
-        "infinite" : true,
-        "scroll" : "x-scroll",
-        "motion" : "ease-out",
-        "default" : 4
-    },
-    "list" : [
+    "slideList" : [
         {
-            "img":"1.jpg",
-            "alt":"bmw 1"
+            "img":"img_1.jpg",
+            "alt":"1번 이미지 대체 텍스트"
         },
         {
-            "img":"2.jpg",
-            "alt":"bmw 2"
+            "img":"img_2.jpg",
+            "alt":"2번 이미지 대체 텍스트"
         },
         {
-            "img":"3.jpg",
-            "alt":"bmw 3"
+            "img":"img_3.jpg",
+            "alt":"2번 이미지 대체 텍스트"
+        },
+        {
+            "img":"img_4.jpg",
+            "alt":"4번 이미지 대체 텍스트"
+        },
+        {
+            "img":"img_5.jpg",
+            "alt":"5번 이미지 대체 텍스트"
         }
     ]
 }

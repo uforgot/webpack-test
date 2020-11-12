@@ -1,9 +1,9 @@
 import df from './df';
-import Slider from './Slider';
+import slider from './slider_v2';
 
 class Index  {
     constructor() {
-
+        new slider($('#slider-1'));
     }
 }
 

@@ -4,87 +4,18 @@
     <meta charset="UTF-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script src="static/vendor/jquery-1.11.3.min.js"></script>
+    <script src="static/vendor/underscore-esm.js"></script>
 </head>
 <body>
 
 
 <div class="wrapper">
-
-    <div class="slider-2" id="slider-2">
-        <ul>
-            <li>
-                <img src="static/img/img_1.jpg" alt="">
-            </li>
-            <li>
-                <img src="static/img/img_2.jpg" alt="">
-            </li>
-
-            <li>
-                <img src="static/img/img_3.jpg" alt="">
-            </li>
-
-            <li>
-                <img src="static/img/img_4.jpg" alt="">
-            </li>
-
-            <li>
-                <img src="static/img/img_5.jpg" alt="">
-            </li>
-        </ul>
-        <nav>
-            <input class="prev" type="button" value="<">
-            <input class="next" type="button" value=">">
-        </nav>
-    </div>
-
-    <br/><br/><br/><br/>
-
-    <div class="slider-2" id="slider-3">
-        <ul>
-            <li>
-                <img src="static/img/img_1.jpg" alt="">
-            </li>
-            <li>
-                <img src="static/img/img_2.jpg" alt="">
-            </li>
-
-            <li>
-                <img src="static/img/img_3.jpg" alt="">
-            </li>
-
-            <li>
-                <img src="static/img/img_4.jpg" alt="">
-            </li>
-
-            <li>
-                <img src="static/img/img_5.jpg" alt="">
-            </li>
-        </ul>
-        <nav>
-            <input class="prev" type="button" value="<">
-            <input class="next" type="button" value=">">
-        </nav>
-    </div>
-
     <!-- Add content here -->
+
     <div class="content">
-        <div class="slider-wrap">
+        <div class="slider-wrap slider-v2" id="slider-1">
             <ul class="slider-view">
-                <li class="slider-item current">
-                    <span class="blind">image 1</span>
-                </li>
-                <li class="slider-item">
-                    <span class="blind">image 2</span>
-                </li>
-                <li class="slider-item">
-                    <span class="blind">image 3</span>
-                </li>
-                <li class="slider-item">
-                    <span class="blind">image 4</span>
-                </li>
-                <li class="slider-item">
-                    <span class="blind">image 5</span>
-                </li>
+                <!-- 슬라이더 수에 따른 동적 코드 생성 -->
             </ul>
             <div class="slider-control">
                 <div class="btns-wrap">
@@ -101,6 +32,19 @@
 
 </div>
 
+<script type="text/template" data-template="slide-item">
+    <li class="slider-item">
+        <img src="$data" alt="$data">
+    </li>
+</script>
+
+<script type="text/template" data-template="indicator-item">
+    <li>
+        <button class="btn-indicator">
+            <span class="blind">indicator ${num}</span>
+        </button>
+    </li>
+</script>
 
 </body>
 <script>

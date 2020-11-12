@@ -87,15 +87,6 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title : 'about',
-            hash: true,
-            template: './src/ejs/index.ejs',
-            chunks: ['about'],
-            filename:'b.html',
-            HTML_PATH: folderPath
-        }),
-
-        new HtmlWebpackPlugin({
             title : 'slider',
             hash: true,
             template: './src/ejs/slider.ejs',
