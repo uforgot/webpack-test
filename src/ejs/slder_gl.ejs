@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="static/vendor/jquery-1.11.3.min.js"></script>
+    <script src="static/vendor/underscore-esm.js"></script>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <!-- Add content here -->
+
+    <div class="content">
+        <div class="slider-wrap" id="slider-1">
+            <ul class="slider-view">
+                <li class="slider-item current">
+                    <img src="static/img/img_1.jpg" alt="">
+                </li>
+                <li class="slider-item">
+                    <img src="static/img/img_2.jpg" alt="">
+                </li>
+                <li class="slider-item">
+                    <img src="static/img/img_3.jpg" alt="">
+                </li>
+                <li class="slider-item">
+                    <img src="static/img/img_4.jpg" alt="">
+                </li>
+                <li class="slider-item">
+                    <img src="static/img/img_5.jpg" alt="">
+                </li>
+            </ul>
+            <div class="slider-control">
+                <div class="btns-wrap">
+                    <button class="btn btn-prev"><span class="blind">go prev</span></button>
+                    <button class="btn btn-next"><span class="blind">go next</span></button>
+                </div>
+                <!-- 슬라이더 수에 따른 동적 코드 생성 -->
+                <ul class="indicator-wrap"></ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script type="text/template" data-template="indicator-item">
+    <li>
+        <button class="btn-indicator">
+            <span class="blind">indicator ${num}</span>
+        </button>
+    </li>
+</script>
+
+</body>
+<script>
+
+
+</script>
+</html>

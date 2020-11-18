@@ -11,7 +11,8 @@ module.exports = {
         css:'./src/assets/scss/style.scss',
         index:'./src/assets/js/app.js',
         about:'./src/assets/js/about.js',
-        slider:'./src/assets/js/page_slider.js'
+        slider:'./src/assets/js/page_slider.js',
+        d3test:'./src/assets/js/d3test.js'
     },
     output: {
         filename:'assets/js/[name].bundle.js',
@@ -101,6 +102,15 @@ module.exports = {
             template: './src/ejs/slider.ejs',
             chunks: ['slider'],
             filename:'slider.html',
+            HTML_PATH: folderPath
+        }),
+
+        new HtmlWebpackPlugin({
+            title : 'd3test',
+            hash: true,
+            template: './src/ejs/d3test.ejs',
+            chunks: ['d3test'],
+            filename:'d3test.html',
             HTML_PATH: folderPath
         }),
 
